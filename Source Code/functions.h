@@ -1,4 +1,4 @@
-/** 
+/**
     ┌--------------------------------┐
     | Team : 1                       |
     | Date : 8/31/2023               |
@@ -33,6 +33,58 @@ void logo()
     printf("@Made By Team 1 (Fares Mostafa - Hassan Mohamed - Youssef Tamer - Youssef Walid)\n");
 }
 
+// Prototype of "decorator" function
+void strcntr(char string[100], int width);
+
+// Body of "decorator" function
+void strcntr(char string[100], int width)
+{
+    int len = strlen(string); // To get the length of the input string
+    
+    for (int i = 0; i < (width - len) / 2 ; i++) // This for loop to print '=' befor the string
+    {
+        if (i == ((width - len) / 2) -1 ) // If the loop in the last iteration ,it will not print anything more
+        {
+            continue;
+        }
+        printf("=");
+    }
+
+    if (strcmp(string, "")) // If the string is empty it will not print the " "
+    {
+        printf(" ");
+    }
+    else if (len % 2 == 0) 
+    {
+        printf("==");
+    }
+    if (len % 2 == 1)
+    {
+        printf("=");
+    }
+
+
+    for (int i = 0; i <= len; i++ ) // This for loop to print the input string without "\n"
+    {
+        printf("%c",string[i]);
+    }
+    
+    if (strcmp(string, ""))
+    {
+        printf(" ");
+    }
+    
+
+    for (int i = 0; i < (width - len) / 2 ; i++) // This for loop to print '=' after the string
+    {
+        if (i >= (width - len) / 2 )
+        {
+            continue;
+        }
+        printf("=");
+    }
+    
+}
 
 // Prototype of "input" function
 void input(char names[7][30]);
@@ -51,7 +103,6 @@ void input(char names[7][30])
         fflush(stdin);
         // Convert string to lowercase
         strlwr(names[i]);
-
 
         if (i == 6)
         {
